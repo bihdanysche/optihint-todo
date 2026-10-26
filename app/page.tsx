@@ -1,29 +1,18 @@
-/*
-На головній сторінці створіть:
-Заголовок "Список завдань"
-Форму з одним полем введення та кнопкою "Додати"
-Список завдань, де кожен елемент містить:
-Чекбокс
-Текст завдання
-Кнопку видалення (іконка "×" або "Видалити")
-Блок з текстом "Залишилось виконати: X", де X — кількість невиконаних завдань
-*/
-
 import TodoCounter from "@/components/TodoCounter";
 import TodoForm from "@/components/TodoForm";
 import TodoList from "@/components/TodoList";
 
 export default function Home() {
   return (
-    <div className="content px-8 py-10 w-full max-w-130">
-      <h1 className="text-3xl font-semibold">Список завдань</h1>
+    <div className="content my-4 w-full max-w-[520px] flex-1 bg-white px-4 py-6 shadow-sm sm:my-8 sm:rounded-xl sm:px-8 sm:py-10">
+      <h1 className="text-2xl font-semibold sm:text-3xl">Список завдань</h1>
 
-      <div className="w-full h-px bg-gray-400 my-4" />
+      <div className="my-4 h-px w-full bg-gray-200" />
 
       <TodoForm />
       <TodoList />
 
-      <div className="w-full h-px bg-gray-400 mb-3 mt-1" />
+      <div className="mb-3 mt-4 h-px w-full bg-gray-200" />
 
       <TodoCounter />
     </div>
