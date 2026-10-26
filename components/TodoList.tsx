@@ -36,13 +36,19 @@ export default function TodoList() {
     return <TodoListState state="loading" />;
   }
 
-  if (state.todos.length === 0) {
+  const todos = state.todos.filter((todo) => {
+    if (state.filterBy == "COMPLETED") return todo.completed;
+    if (state.filterBy == "NOT_COMPLETED") return !todo.completed;
+    return true;
+  });
+
+  if (todos.length === 0) {
     return <TodoListState state="empty" />;
   }
 
   return (
     <Container>
-      {state.todos.map((todo) => (
+      {todos.map((todo) => (
         <TodoItem key={todo.id} todo={todo} />
       ))}
     </Container>

@@ -1,6 +1,7 @@
 import TodoCounter from "@/components/TodoCounter";
 import TodoForm from "@/components/TodoForm";
 import TodoList from "@/components/TodoList";
+import TodosFilter from "@/components/TodosFilter";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <div className="my-4 h-px w-full bg-gray-200" />
 
       <TodoForm />
+      <TodosFilter />
       <TodoList />
 
       <div className="mb-3 mt-4 h-px w-full bg-gray-200" />
