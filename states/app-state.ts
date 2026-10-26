@@ -8,6 +8,7 @@ export type AppState = {
 export type AppAction =
   | { type: "ADD_TODO"; payload: Todo }
   | { type: "SET_TODOS"; payload: Todo[] }
+  | { type: "EDIT_TODO"; payload: { id: string; text: string } }
   | { type: "REMOVE_TODO"; payload: string }
   | { type: "TOGGLE_TODO"; payload: string };
 
@@ -33,6 +34,15 @@ export function appReducer(state: AppState, action: AppAction): AppState {
         todos: state.todos.map((todo) =>
           todo.id === action.payload
             ? { ...todo, completed: !todo.completed }
+            : todo,
+        ),
+      };
+    case "EDIT_TODO":
+      return {
+        ...state,
+        todos: state.todos.map((todo) =>
+          todo.id === action.payload.id
+            ? { ...todo, text: action.payload.text }
             : todo,
         ),
       };
